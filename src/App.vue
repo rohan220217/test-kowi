@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app class="main-app">
+    <kowi-app-bar></kowi-app-bar>
+    <v-main>
+      <!-- <v-slide-x-transition mode="in-out"> -->
+      <router-view />
+      <!-- </v-slide-x-transition> -->
+    </v-main>
+    <kowi-day-night></kowi-day-night>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import KowiAppBar from "./components/NavigationDrawer.vue";
+import KowiDayNight from "./components/DayNight.vue";
+export default {
+  name: "App",
 
-#nav {
-  padding: 30px;
-}
+  data: () => ({
+    //
+  }),
+  components: {
+    KowiDayNight,
+    KowiAppBar,
+  },
+};
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+<style >
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.main-app {
+  font-family: "Quicksand", sans-serif;
 }
 </style>
